@@ -75,25 +75,25 @@ void postRequest(String url, String param) {
 
 // エアコンリクエストの判定
 void judgeRequest(int val) {
-  if(val & 100000 == 100000) {
+  if( (int)(val & 100000) == 100000 ) {
     // 冷房
     sendSignal(_powerON, sizeof(_powerON) / sizeof(_powerON[0]));
     delay(5000);
     sendSignal(_cool, sizeof(_cool) / sizeof(_cool[0]));
     addOption(val);
-  } else if(val & 10000 == 10000) {
+  } else if( (int)(val & 10000) == 10000 ) {
     // ドライ
     sendSignal(_powerON, sizeof(_powerON) / sizeof(_powerON[0]));
     delay(5000);
     sendSignal(_dry, sizeof(_dry) / sizeof(_dry[0]));
     addOption(val);
-  } else if(val & 1000 == 1000) {
+  } else if( (int)(val & 1000) == 1000 ) {
     // 暖房
     sendSignal(_powerON, sizeof(_powerON) / sizeof(_powerON[0]));
     delay(5000);
     sendSignal(_heat, sizeof(_heat) / sizeof(_heat[0]));
     addOption(val);
-  } else if(val & 100 == 100) {
+  } else if( (int)(val & 100) == 100 ) {
     // OFF
     sendSignal(_powerOFF, sizeof(_powerOFF) / sizeof(_powerOFF[0]));
   } else {
